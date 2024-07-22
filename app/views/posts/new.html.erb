@@ -1,0 +1,23 @@
+<header>
+  <h1>Please create new post:</h1>
+  <div>
+    <ul>
+      <% @post.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+</header>
+<main>
+  <%= form_with model: @post do |f| %>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title, placeholder: "Coding is..."%>
+    </div>
+    <div>
+      <%= f.label :body %>
+      <%= f.text_area :body, placeholder: "Why is coding..."%>
+    </div>
+    <div><%= f.submit "Create new post!"%></div>
+  <%end%>
+</main>
